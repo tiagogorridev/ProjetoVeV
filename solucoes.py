@@ -1,3 +1,5 @@
+import re
+
 """
 Atividade Prática: Code Review e Colaboração com Git & GitHub
 """
@@ -13,11 +15,23 @@ def cifra_de_cesar(texto, deslocamento):
     pass
 
 
-def encontrar_maior_palavra(frase):
+def encontrar_maior_palavra(frase: str) -> str:
     """
-    Encontra a maior palavra em uma frase.
+    Retorna a maior palavra de uma frase.
+    - Ignora pontuação anexada às palavras.
+    - Em caso de empate, retorna a primeira que aparece.
+    - Se não houver palavras, retorna string vazia.
     """
-    pass
+    if not frase or not isinstance(frase, str):
+        return ""
+
+    tokens = re.findall(r"[A-Za-zÀ-ÖØ-öø-ÿ0-9]+", frase)
+
+    if not tokens:
+        return ""
+
+    return max(tokens, key=len)
+
 
 
 def main():
