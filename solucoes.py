@@ -13,7 +13,18 @@ def cifra_de_cesar(texto, deslocamento):
     """
     Aplica a Cifra de César a uma string.
     """
-    pass
+    resultado = []
+
+    for char in texto:
+        if char.isalpha():
+            base = ord('A') if char.isupper() else ord('a')
+
+            novo_char = chr((ord(char) - base + deslocamento) % 26 + base)
+            resultado.append(novo_char)
+        else:
+            resultado.append(char)
+
+    return ''.join(resultado)
 
 
 def encontrar_maior_palavra(frase):
