@@ -3,10 +3,7 @@ Atividade Prática: Code Review e Colaboração com Git & GitHub
 """
 
 def sao_anagramas(string1, string2):
-    """
-    Verifica se duas strings são anagramas uma da outra.
-    """
-    pass  
+    return sorted(string1.replace(" ", "").lower()) == sorted(string2.replace(" ", "").lower())
 
 
 def cifra_de_cesar(texto, deslocamento):
